@@ -1,0 +1,101 @@
+[gd_scene load_steps=3 format=3 uid="uid://h77ofh45y6jg"]
+
+[ext_resource type="Script" path="res://src/rvCamera.gd" id="1_d351p"]
+[ext_resource type="Theme" uid="uid://b1082ki78va7u" path="res://themes/editor_theme.tres" id="2_5j0sf"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.572581)
+script = ExtResource("1_d351p")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.67737, -0.140187, 0.600548, 0.735055, 0.13974, -0.529464, -0.0293875, 0.263992, 0.599174, -1.01172, 0, -1.15346)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.472843, 0.881147, 0, -0.881147, 0.472843, -0.112138, 1.08338, -0.441627)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayerUI" type="CanvasLayer" parent="Control"]
+
+[node name="ToolBarPanelContainer" type="PanelContainer" parent="Control/CanvasLayerUI"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.037
+offset_bottom = 0.0400009
+theme = ExtResource("2_5j0sf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/CanvasLayerUI/ToolBarPanelContainer"]
+layout_mode = 2
+
+[node name="EditorPanelContainer" type="PanelContainer" parent="Control/CanvasLayerUI"]
+anchors_preset = -1
+anchor_top = 0.037
+anchor_right = 0.333
+anchor_bottom = 1.0
+offset_top = 0.0400009
+offset_right = -0.359985
+theme = ExtResource("2_5j0sf")
+
+[node name="TextMarginContainer" type="MarginContainer" parent="Control/CanvasLayerUI/EditorPanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="TextEdit" type="TextEdit" parent="Control/CanvasLayerUI/EditorPanelContainer/TextMarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_5j0sf")
+wrap_mode = 1
+
+[node name="EditorWidgetContaienr" type="HBoxContainer" parent="Control/CanvasLayerUI"]
+custom_minimum_size = Vector2(500, 50)
+layout_direction = 1
+anchors_preset = -1
+anchor_top = 0.037
+anchor_right = 0.333
+anchor_bottom = 0.083
+offset_top = 0.0400009
+offset_right = -0.359985
+offset_bottom = 0.360001
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Button" type="Button" parent="Control/CanvasLayerUI/EditorWidgetContaienr"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("2_5j0sf")
+
+[node name="Button2" type="Button" parent="Control/CanvasLayerUI/EditorWidgetContaienr"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("2_5j0sf")
+
+[node name="Button3" type="Button" parent="Control/CanvasLayerUI/EditorWidgetContaienr"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("2_5j0sf")
+
+[node name="Button4" type="Button" parent="Control/CanvasLayerUI/EditorWidgetContaienr"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("2_5j0sf")
+
+[node name="Button" type="Button" parent="Control/CanvasLayerUI"]
+anchors_preset = -1
+anchor_left = 0.333
+anchor_top = 0.415
+anchor_right = 0.354
+anchor_bottom = 0.593
+offset_left = -0.359985
+offset_top = -0.200012
+offset_right = 0.320007
+offset_bottom = -0.440063
