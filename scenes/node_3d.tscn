@@ -6,11 +6,9 @@
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.572581)
+transform = Transform3D(0.72269, 0.618279, -0.30895, 9.89672e-09, 0.446994, 0.894537, 0.691173, -0.646473, 0.323038, -0.379471, 1.08254, 0.660456)
+near = 0.01
 script = ExtResource("1_d351p")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(0.67737, -0.140187, 0.600548, 0.735055, 0.13974, -0.529464, -0.0293875, 0.263992, 0.599174, -1.01172, 0, -1.15346)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.472843, 0.881147, 0, -0.881147, 0.472843, -0.112138, 1.08338, -0.441627)
@@ -99,3 +97,6 @@ offset_left = -0.359985
 offset_top = -0.200012
 offset_right = 0.320007
 offset_bottom = -0.440063
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(4.15553, 0, 0, 0, 0.816, 0, 0, 0, 6, 0, -0.603316, 0)
