@@ -13,11 +13,6 @@ script = ExtResource("3_mtg38")
 transform = Transform3D(0.72269, 0.61828, -0.30895, 9.89672e-09, 0.446994, 0.894537, 0.691173, -0.646473, 0.323038, -0.379471, 2.28328, 0.660456)
 near = 0.01
 script = ExtResource("1_8tj1a")
-player_typing = null
-cam_speed = null
-cam_smoothing = null
-boundary_width_half = null
-boundary_height_half = null
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.472843, 0.881147, 0, -0.881147, 0.472843, -0.112138, 1.08338, -0.441627)
