@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://h77ofh45y6jg"]
 
-[ext_resource type="Script" path="res://src/RvCamera.gd" id="1_8tj1a"]
+[ext_resource type="Script" path="res://src/rvCamera.gd" id="1_3inls"]
 [ext_resource type="Theme" uid="uid://b1082ki78va7u" path="res://themes/editor_theme.tres" id="2_5j0sf"]
 [ext_resource type="Script" path="res://src/codeHighlighter.gd" id="3_mtg38"]
 
@@ -12,7 +12,7 @@ script = ExtResource("3_mtg38")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.72269, 0.61828, -0.30895, 9.89672e-09, 0.446994, 0.894537, 0.691173, -0.646473, 0.323038, -0.379471, 2.28328, 0.660456)
 near = 0.01
-script = ExtResource("1_8tj1a")
+script = ExtResource("1_3inls")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.472843, 0.881147, 0, -0.881147, 0.472843, -0.112138, 1.08338, -0.441627)
