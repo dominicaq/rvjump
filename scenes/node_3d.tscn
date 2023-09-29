@@ -1,7 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://h77ofh45y6jg"]
+[gd_scene load_steps=6 format=3 uid="uid://h77ofh45y6jg"]
 
 [ext_resource type="Script" path="res://src/RvCamera.gd" id="1_8tj1a"]
 [ext_resource type="Theme" uid="uid://b1082ki78va7u" path="res://themes/editor_theme.tres" id="2_5j0sf"]
+[ext_resource type="Script" path="res://src/TextEditor.gd" id="3_1m1l5"]
+
+[sub_resource type="GDScript" id="GDScript_puhae"]
+script/source = "extends CodeHighlighter
+
+const SYMBOL_MAPPINGS := [
+	[\"#dc322f\", [\"and\", \"addi\"]],
+	[\"#6c71c4\", []],
+	[\"#268bd2\", [\"ecall\"]]]
+	
+const NUM_COLOR := Color.LIGHT_GREEN
+
+const COMMENT_COLOR := Color.HOT_PINK
+
+func _init() -> void:
+	clear_color_regions()
+	clear_keyword_colors()
+	clear_member_keyword_colors()
+	clear_highlighting_cache()
+	for MAP in SYMBOL_MAPPINGS:
+		var col = MAP[0]
+		var symbols = MAP[1]
+		for symbol in symbols:
+			add_keyword_color(symbol, col)
+	# numbers
+	set_number_color(NUM_COLOR)
+	add_keyword_color(\"zero\", NUM_COLOR)
+	
+	# comments have special rules
+	add_color_region(\"#\", \"\", COMMENT_COLOR, true)
+"
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_c15ky"]
+script = SubResource("GDScript_puhae")
 
 [node name="Node3D" type="Node3D"]
 
@@ -53,6 +87,8 @@ theme_override_constants/margin_bottom = 25
 layout_mode = 2
 theme = ExtResource("2_5j0sf")
 wrap_mode = 1
+syntax_highlighter = SubResource("CodeHighlighter_c15ky")
+script = ExtResource("3_1m1l5")
 
 [node name="EditorWidgetContaienr" type="HBoxContainer" parent="Control/CanvasLayerUI"]
 custom_minimum_size = Vector2(500, 50)
