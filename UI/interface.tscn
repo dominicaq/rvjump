@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfn1r4fxqa77u"]
+
+[ext_resource type="Theme" uid="uid://b1082ki78va7u" path="res://themes/editor_theme.tres" id="1_pnecd"]
+[ext_resource type="Script" path="res://src/codeHighlighter.gd" id="2_fp707"]
+[ext_resource type="Texture2D" uid="uid://u3rubww2n3o4" path="res://UI/start.svg" id="3_kl4op"]
+[ext_resource type="Texture2D" uid="uid://b8sjuprqk0sjq" path="res://UI/pause.svg" id="4_mr2gb"]
+[ext_resource type="Texture2D" uid="uid://cqttjbpsj61ci" path="res://UI/rewind.svg" id="5_mg6vp"]
+[ext_resource type="Texture2D" uid="uid://ygpo5u5k7urn" path="res://UI/settings.svg" id="6_lyg60"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_l4ed5"]
+script = ExtResource("2_fp707")
+
+[node name="CanvasLayerUI" type="CanvasLayer"]
+
+[node name="ToolBarPanelContainer" type="PanelContainer" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.037
+offset_bottom = 0.0400009
+theme = ExtResource("1_pnecd")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ToolBarPanelContainer"]
+layout_mode = 2
+
+[node name="EditorPanelContainer" type="PanelContainer" parent="."]
+anchors_preset = -1
+anchor_top = 0.037
+anchor_right = 0.333
+anchor_bottom = 1.0
+offset_top = 0.0400009
+offset_right = -0.359985
+theme = ExtResource("1_pnecd")
+
+[node name="TextMarginContainer" type="MarginContainer" parent="EditorPanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="TextEdit" type="TextEdit" parent="EditorPanelContainer/TextMarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_pnecd")
+wrap_mode = 1
+syntax_highlighter = SubResource("CodeHighlighter_l4ed5")
+
+[node name="EditorWidgetContaienr" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 50)
+layout_direction = 1
+anchors_preset = -1
+anchor_top = 0.037
+anchor_right = 0.333
+anchor_bottom = 0.083
+offset_top = 0.0399995
+offset_right = -0.360008
+offset_bottom = 52.36
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Button" type="Button" parent="EditorWidgetContaienr"]
+layout_mode = 2
+theme = ExtResource("1_pnecd")
+icon = ExtResource("3_kl4op")
+
+[node name="Button2" type="Button" parent="EditorWidgetContaienr"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("1_pnecd")
+icon = ExtResource("4_mr2gb")
+
+[node name="Button3" type="Button" parent="EditorWidgetContaienr"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("1_pnecd")
+icon = ExtResource("5_mg6vp")
+
+[node name="Button4" type="Button" parent="EditorWidgetContaienr"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("1_pnecd")
+icon = ExtResource("6_lyg60")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.333
+anchor_top = 0.415
+anchor_right = 0.354
+anchor_bottom = 0.593
+offset_left = -0.359985
+offset_top = -0.200012
+offset_right = 0.320007
+offset_bottom = -0.440063

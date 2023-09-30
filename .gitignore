@@ -16,3 +16,4 @@ mono_crash.*.json
 
 # Build ignores
 build/
+.DS_Store

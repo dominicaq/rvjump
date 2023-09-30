@@ -1,11 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://h77ofh45y6jg"]
+[gd_scene load_steps=3 format=3 uid="uid://h77ofh45y6jg"]
 
 [ext_resource type="Script" path="res://src/rvCamera.gd" id="1_3inls"]
-[ext_resource type="Theme" uid="uid://b1082ki78va7u" path="res://themes/editor_theme.tres" id="2_5j0sf"]
-[ext_resource type="Script" path="res://src/codeHighlighter.gd" id="3_mtg38"]
-
-[sub_resource type="CodeHighlighter" id="CodeHighlighter_nql3c"]
-script = ExtResource("3_mtg38")
+[ext_resource type="PackedScene" uid="uid://cfn1r4fxqa77u" path="res://UI/interface.tscn" id="2_5qaqm"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -24,84 +20,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="CanvasLayerUI" type="CanvasLayer" parent="Control"]
-
-[node name="ToolBarPanelContainer" type="PanelContainer" parent="Control/CanvasLayerUI"]
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.037
-offset_bottom = 0.0400009
-theme = ExtResource("2_5j0sf")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/CanvasLayerUI/ToolBarPanelContainer"]
-layout_mode = 2
-
-[node name="EditorPanelContainer" type="PanelContainer" parent="Control/CanvasLayerUI"]
-anchors_preset = -1
-anchor_top = 0.037
-anchor_right = 0.333
-anchor_bottom = 1.0
-offset_top = 0.0400009
-offset_right = -0.359985
-theme = ExtResource("2_5j0sf")
-
-[node name="TextMarginContainer" type="MarginContainer" parent="Control/CanvasLayerUI/EditorPanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
-
-[node name="TextEdit" type="TextEdit" parent="Control/CanvasLayerUI/EditorPanelContainer/TextMarginContainer"]
-layout_mode = 2
-theme = ExtResource("2_5j0sf")
-wrap_mode = 1
-syntax_highlighter = SubResource("CodeHighlighter_nql3c")
-
-[node name="EditorWidgetContaienr" type="HBoxContainer" parent="Control/CanvasLayerUI"]
-custom_minimum_size = Vector2(500, 50)
-layout_direction = 1
-anchors_preset = -1
-anchor_top = 0.037
-anchor_right = 0.333
-anchor_bottom = 0.083
-offset_top = 0.0400009
-offset_right = -0.359985
-offset_bottom = 0.360001
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="Button" type="Button" parent="Control/CanvasLayerUI/EditorWidgetContaienr"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-theme = ExtResource("2_5j0sf")
-
-[node name="Button2" type="Button" parent="Control/CanvasLayerUI/EditorWidgetContaienr"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-theme = ExtResource("2_5j0sf")
-
-[node name="Button3" type="Button" parent="Control/CanvasLayerUI/EditorWidgetContaienr"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-theme = ExtResource("2_5j0sf")
-
-[node name="Button4" type="Button" parent="Control/CanvasLayerUI/EditorWidgetContaienr"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-theme = ExtResource("2_5j0sf")
-
-[node name="Button" type="Button" parent="Control/CanvasLayerUI"]
-anchors_preset = -1
-anchor_left = 0.333
-anchor_top = 0.415
-anchor_right = 0.354
-anchor_bottom = 0.593
-offset_left = -0.359985
-offset_top = -0.200012
-offset_right = 0.320007
-offset_bottom = -0.440063
+[node name="CanvasLayerUI" parent="Control" instance=ExtResource("2_5qaqm")]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(4.15553, 0, 0, 0, 0.816, 0, 0, 0, 6, 0, -0.603316, 0)
