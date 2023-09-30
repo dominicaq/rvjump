@@ -1,6 +1,7 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://b1082ki78va7u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rr2r1"]
+bg_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kywcs"]
 content_margin_left = 0.0
@@ -16,6 +17,8 @@ bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
 [sub_resource type="SystemFont" id="SystemFont_phluk"]
 
 [resource]
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
 Button/styles/normal = SubResource("StyleBoxFlat_rr2r1")
 Panel/styles/panel = SubResource("StyleBoxFlat_kywcs")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_q0a5n")
