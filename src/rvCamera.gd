@@ -1,25 +1,32 @@
 class_name RvCamera extends Camera3D
 
 # Camera Properties
-@export var player_typing: bool = false
+@export var disable_movement: bool = false
 @export var cam_base_speed: float = 10.0
 @export var cam_shift_speed: float = 20.0
+@export var cam_center_adjustment: Vector3 = Vector3(-3,0,-3)
 
 # Boundary box
 @export var boundary_width_half: float = 10
 @export var boundary_height_half: float = 5
 
 # Private memeber values
-# @onready var _rv_transform: Transform3D = $Transform3D
-@onready var _transform: Transform3D = get_camera_transform()
-@onready var _start_position: Vector3 = self.position
-var _target_position: Vector3 = self.position
-var _raw_input: Vector2 = Vector2.ZERO
-var _current_speed = cam_base_speed
+var _current_speed
+var _transform: Transform3D
+var _target_position: Vector3
+var _raw_input: Vector2
 
+func _ready():
+	_transform = get_camera_transform()
+	
+	# Properties / Input
+	_raw_input = Vector2.ZERO
+	_target_position = self.position
+	_current_speed = cam_base_speed
+	
 func _input(event):
-	# Disable input if the player is typing
-	if player_typing:
+	if disable_movement:
+		_raw_input = Vector2.ZERO
 		return
 
 	if event.is_action_pressed("center_rv"):
@@ -71,5 +78,15 @@ func _get_move_dir() -> Vector3:
 	return global_dir.normalized()
 
 func center_rv() -> void:
-	_target_position = _start_position
-	self.position = _start_position
+	# Positions
+	var cam_pos = self.position
+	var rv_pos = GameManager.get_rv_position()
+	
+	# Camera info
+	var cam_forward = -_transform.basis.z
+	var cam_lookat_point = Plane.PLANE_XZ.intersects_ray(cam_pos, cam_forward)
+	var cam_offset = cam_pos - cam_lookat_point
+	
+	# Set target position
+	_target_position = rv_pos + cam_offset + cam_center_adjustment
+	_target_position.y = self.position.y
