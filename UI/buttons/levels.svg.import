@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://u3rubww2n3o4"
-path="res://.godot/imported/start.svg-dfce70602db065140b9bf97bdd73739a.ctex"
+uid="uid://vyveoxbf3xmw"
+path="res://.godot/imported/levels.svg-d15cdf267ab06faaa235d70214711b15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/start.svg"
-dest_files=["res://.godot/imported/start.svg-dfce70602db065140b9bf97bdd73739a.ctex"]
+source_file="res://UI/buttons/levels.svg"
+dest_files=["res://.godot/imported/levels.svg-d15cdf267ab06faaa235d70214711b15.ctex"]
 
 [params]
 

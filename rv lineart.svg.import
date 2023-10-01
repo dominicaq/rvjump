@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqttjbpsj61ci"
-path="res://.godot/imported/rewind.svg-9c1a6ec208e1fbcc01685512347a25a1.ctex"
+uid="uid://bmm2wl75g0i3m"
+path="res://.godot/imported/rv lineart.svg-ef506926b58eaffe0c104e7811643ce0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/rewind.svg"
-dest_files=["res://.godot/imported/rewind.svg-9c1a6ec208e1fbcc01685512347a25a1.ctex"]
+source_file="res://rv lineart.svg"
+dest_files=["res://.godot/imported/rv lineart.svg-ef506926b58eaffe0c104e7811643ce0.ctex"]
 
 [params]
 
