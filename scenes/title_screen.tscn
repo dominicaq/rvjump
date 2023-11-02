@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b7iu7wdtaage0" path="res://UI/buttons/play.svg" id="4_7qa2n"]
 [ext_resource type="Texture2D" uid="uid://vyveoxbf3xmw" path="res://UI/buttons/levels.svg" id="5_mkn44"]
 [ext_resource type="Script" path="res://scenes/TitleScreenAnimation.gd" id="6_fbbh8"]
-[ext_resource type="Texture2D" uid="uid://bmm2wl75g0i3m" path="res://rv lineart.svg" id="7_vjmxt"]
+[ext_resource type="Texture2D" uid="uid://bmm2wl75g0i3m" path="res://UI/rv lineart.svg" id="7_vjmxt"]
 
 [sub_resource type="Curve2D" id="Curve2D_6gnoj"]
 _data = {

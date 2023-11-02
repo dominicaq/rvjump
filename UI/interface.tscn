@@ -12,27 +12,18 @@ script = ExtResource("2_fp707")
 
 [node name="CanvasLayerUI" type="CanvasLayer"]
 
-[node name="ToolBarPanelContainer" type="PanelContainer" parent="."]
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.037
-offset_bottom = 0.0400009
-theme = ExtResource("1_pnecd")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ToolBarPanelContainer"]
-layout_mode = 2
-
 [node name="EditorPanelContainer" type="PanelContainer" parent="."]
 anchors_preset = -1
 anchor_top = 0.037
 anchor_right = 0.333
 anchor_bottom = 1.0
-offset_top = 102.04
+offset_top = -41.96
 offset_right = -0.360008
 theme = ExtResource("1_pnecd")
 
 [node name="TextMarginContainer" type="MarginContainer" parent="EditorPanelContainer"]
 layout_mode = 2
+theme = ExtResource("1_pnecd")
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 25
@@ -44,42 +35,19 @@ theme = ExtResource("1_pnecd")
 wrap_mode = 1
 syntax_highlighter = SubResource("CodeHighlighter_l4ed5")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(500, 2.08165e-12)
-offset_top = 39.0
-offset_right = 639.0
-offset_bottom = 147.0
-theme = ExtResource("1_pnecd")
-color = Color(0.0687983, 0.0687983, 0.0687983, 1)
-
 [node name="EditorWidgetContainer" type="HBoxContainer" parent="."]
 layout_direction = 1
 anchors_preset = -1
 anchor_top = 0.0536667
 anchor_right = 0.333
 anchor_bottom = 0.0996667
-offset_top = -17.96
-offset_right = -0.360008
-offset_bottom = 34.36
+offset_left = 1208.0
+offset_top = 257.04
+offset_right = 1207.64
+offset_bottom = 309.36
 size_flags_horizontal = 4
 theme_override_constants/separation = 50
 alignment = 1
-
-[node name="TextureButton" type="TextureButton" parent="EditorWidgetContainer"]
-layout_mode = 2
-texture_normal = ExtResource("3_kl4op")
-
-[node name="TextureButton2" type="TextureButton" parent="EditorWidgetContainer"]
-layout_mode = 2
-texture_normal = ExtResource("4_mr2gb")
-
-[node name="TextureButton3" type="TextureButton" parent="EditorWidgetContainer"]
-layout_mode = 2
-texture_normal = ExtResource("5_mg6vp")
-
-[node name="TextureButton4" type="TextureButton" parent="EditorWidgetContainer"]
-layout_mode = 2
-texture_normal = ExtResource("6_lyg60")
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = -1
@@ -92,3 +60,31 @@ offset_top = -0.200012
 offset_right = 0.320007
 offset_bottom = -0.440063
 theme = ExtResource("1_pnecd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -471.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_kl4op")
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_mr2gb")
+
+[node name="TextureButton3" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_mg6vp")
+
+[node name="TextureButton4" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_lyg60")

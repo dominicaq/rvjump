@@ -1,7 +1,22 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://b1082ki78va7u"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://b1082ki78va7u"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_irhva"]
+color = Color(0.988235, 0.972549, 0.85098, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3i3c"]
+bg_color = Color(0.984314, 0.964706, 0.901961, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rr2r1"]
-bg_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+bg_color = Color(0.992157, 0.964706, 0.890196, 1)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 12
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wedfy"]
+bg_color = Color(0.980392, 0.984314, 0.760784, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kywcs"]
 content_margin_left = 0.0
@@ -12,16 +27,19 @@ bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
 border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0a5n"]
-bg_color = Color(0.0705882, 0.0705882, 0.0705882, 1)
+bg_color = Color(0.992157, 0.964706, 0.890196, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_phluk"]
 
 [resource]
 Button/colors/icon_focus_color = Color(0, 0, 0, 1)
 Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/styles/focus = SubResource("StyleBoxLine_irhva")
+Button/styles/hover = SubResource("StyleBoxFlat_u3i3c")
 Button/styles/normal = SubResource("StyleBoxFlat_rr2r1")
+Button/styles/pressed = SubResource("StyleBoxFlat_wedfy")
 Panel/styles/panel = SubResource("StyleBoxFlat_kywcs")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_q0a5n")
-TextEdit/colors/background_color = Color(0.196078, 0.196078, 0.196078, 1)
+TextEdit/colors/background_color = Color(0, 0.168627, 0.211765, 1)
 TextEdit/font_sizes/font_size = 25
 TextEdit/fonts/font = SubResource("SystemFont_phluk")
