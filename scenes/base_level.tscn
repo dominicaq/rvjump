@@ -1,22 +1,48 @@
-[gd_scene load_steps=6 format=3 uid="uid://h77ofh45y6jg"]
+[gd_scene load_steps=11 format=3 uid="uid://h77ofh45y6jg"]
 
 [ext_resource type="Script" path="res://src/rvCamera.gd" id="1_few2w"]
 [ext_resource type="PackedScene" uid="uid://cfn1r4fxqa77u" path="res://UI/interface.tscn" id="2_20pk3"]
 [ext_resource type="ArrayMesh" uid="uid://wahqdn6d1ax3" path="res://assets/rv.vox.obj" id="3_wjdfj"]
 [ext_resource type="Texture2D" uid="uid://ytmq0f64qbay" path="res://assets/rv.vox.png" id="4_pkmmc"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyi6u"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nodws"]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("4_pkmmc")
+roughness = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vw0xj"]
+size = Vector3(3.59057, 1.54655, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_er1la"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdv8w"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.490196, 0.639216, 0.403922, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bibhs"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tt7fk"]
+albedo_color = Color(0.686275, 0.564706, 0.423529, 1)
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.72269, 0.61828, -0.30895, 9.89672e-09, 0.446994, 0.894537, 0.691173, -0.646473, 0.323038, -0.379471, 15.7127, 1.56604)
+transform = Transform3D(0.72269, 0.61828, -0.30895, 9.89672e-09, 0.446994, 0.894537, 0.691173, -0.646473, 0.323038, -0.379, 20, 1.566)
 near = 0.01
 script = ExtResource("1_few2w")
+boundary_width_half = 20.0
+boundary_height_half = 20.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.472843, 0.881147, 0, -0.881147, 0.472843, -0.112138, 1.08338, -0.441627)
+transform = Transform3D(0.802672, 0.282013, 0.525535, -0.596421, 0.379538, 0.707272, 0, -0.881147, 0.472843, 0, 4, 0)
+light_color = Color(0.952941, 0.94902, 0.921569, 1)
+shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_blend_splits = true
+directional_shadow_fade_start = 0.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -29,10 +55,34 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayerUI" parent="Control" instance=ExtResource("2_20pk3")]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(4.15553, 0, 0, 0, 0.816, 0, 0, 0, 6, 0, -0.603316, 0)
+[node name="rv" type="RigidBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.92335, 0)
 
-[node name="rv" type="CSGMesh3D" parent="."]
-transform = Transform3D(-1.74846e-08, -1.39515e-16, -0.4, 1.39515e-16, 0.4, -1.39515e-16, 0.4, -1.39515e-16, -1.74846e-08, 0, 0, 0)
+[node name="RVMesh" type="MeshInstance3D" parent="rv"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = ExtResource("3_wjdfj")
-material = SubResource("StandardMaterial3D_jyi6u")
+surface_material_override/0 = SubResource("StandardMaterial3D_nodws")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="rv"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.32085, -0.2, 0.6, -0.2)
+shape = SubResource("BoxShape3D_vw0xj")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(37.488, 0, 0, 0, 3.685, 0, 0, 0, 42.6939, 0, 0, -3.76558)
+mesh = SubResource("PlaneMesh_er1la")
+surface_material_override/0 = SubResource("StandardMaterial3D_wdv8w")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_bibhs")
+
+[node name="Road" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(0.0332359, 0, 0, 0, 2.64198, 0, 0, 0, 1.13637, -0.00815452, 0.00922279, 0.0521296)
+mesh = SubResource("PlaneMesh_er1la")
+surface_material_override/0 = SubResource("StandardMaterial3D_tt7fk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor/Road"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Road/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_bibhs")

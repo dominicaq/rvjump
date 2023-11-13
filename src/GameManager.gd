@@ -31,5 +31,5 @@ func _input(event):
 		_rv_camera.disable_movement = !_rv_camera.disable_movement 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
