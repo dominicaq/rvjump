@@ -1,3 +1,6 @@
-[gd_resource type="SyntaxHighlighter" format=3 uid="uid://cbevmq71bygjf"]
+[gd_resource type="SyntaxHighlighter" load_steps=2 format=3 uid="uid://cbevmq71bygjf"]
+
+[ext_resource type="Script" path="res://src/menu/rsicv_highlight.gd" id="1_4nl1i"]
 
 [resource]
+script = ExtResource("1_4nl1i")

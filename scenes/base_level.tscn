@@ -2,14 +2,11 @@
 
 [ext_resource type="Script" path="res://src/game_camera.gd" id="1_few2w"]
 [ext_resource type="PackedScene" uid="uid://cfn1r4fxqa77u" path="res://UI/interface.tscn" id="2_20pk3"]
-[ext_resource type="ArrayMesh" uid="uid://wahqdn6d1ax3" path="res://assets/rv.vox.obj" id="3_wjdfj"]
-[ext_resource type="Texture2D" uid="uid://ytmq0f64qbay" path="res://assets/rv.vox.png" id="4_pkmmc"]
+[ext_resource type="ArrayMesh" uid="uid://wahqdn6d1ax3" path="res://assets/models/rv.vox.obj" id="3_3fbhx"]
+[ext_resource type="Texture2D" uid="uid://ytmq0f64qbay" path="res://assets/models/rv.vox.png" id="4_m02cr"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nodws"]
-diffuse_mode = 3
-specular_mode = 1
-albedo_texture = ExtResource("4_pkmmc")
-roughness = 0.5
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c3dvg"]
+albedo_texture = ExtResource("4_m02cr")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vw0xj"]
 size = Vector3(3.59057, 1.54655, 1)
@@ -60,8 +57,8 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.9
 
 [node name="RVMesh" type="MeshInstance3D" parent="rv"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("3_wjdfj")
-surface_material_override/0 = SubResource("StandardMaterial3D_nodws")
+material_override = SubResource("StandardMaterial3D_c3dvg")
+mesh = ExtResource("3_3fbhx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="rv"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.32085, -0.2, 0.6, -0.2)

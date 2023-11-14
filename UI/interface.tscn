@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfn1r4fxqa77u"]
+[gd_scene load_steps=9 format=3 uid="uid://cfn1r4fxqa77u"]
 
 [ext_resource type="Theme" uid="uid://b1082ki78va7u" path="res://UI/themes/editor_theme.tres" id="1_pnecd"]
+[ext_resource type="Script" path="res://src/menu/rsicv_highlight.gd" id="2_do5bt"]
 [ext_resource type="Script" path="res://src/menu/code_editor.gd" id="2_ovmk8"]
-[ext_resource type="SyntaxHighlighter" uid="uid://cbevmq71bygjf" path="res://UI/rsicv_syntax_highlighter.tres" id="2_skjge"]
 [ext_resource type="Texture2D" uid="uid://u3rubww2n3o4" path="res://UI/buttons/start.svg" id="3_kl4op"]
 [ext_resource type="Texture2D" uid="uid://b8sjuprqk0sjq" path="res://UI/buttons/pause.svg" id="4_mr2gb"]
 [ext_resource type="Texture2D" uid="uid://cqttjbpsj61ci" path="res://UI/buttons/rewind.svg" id="5_mg6vp"]
 [ext_resource type="Texture2D" uid="uid://ygpo5u5k7urn" path="res://UI/buttons/settings.svg" id="6_lyg60"]
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_yw2vg"]
+script = ExtResource("2_do5bt")
 
 [node name="CanvasLayerUI" type="CanvasLayer"]
 
@@ -30,7 +33,7 @@ theme_override_constants/margin_bottom = 25
 layout_mode = 2
 theme = ExtResource("1_pnecd")
 wrap_mode = 1
-syntax_highlighter = ExtResource("2_skjge")
+syntax_highlighter = SubResource("CodeHighlighter_yw2vg")
 script = ExtResource("2_ovmk8")
 
 [node name="Button" type="Button" parent="."]
