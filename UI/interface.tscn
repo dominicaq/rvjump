@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfn1r4fxqa77u"]
+[gd_scene load_steps=10 format=3 uid="uid://cfn1r4fxqa77u"]
 
 [ext_resource type="Theme" uid="uid://b1082ki78va7u" path="res://UI/themes/editor_theme.tres" id="1_pnecd"]
 [ext_resource type="Script" path="res://src/menu/rsicv_highlight.gd" id="2_do5bt"]
@@ -8,7 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://cqttjbpsj61ci" path="res://UI/buttons/rewind.svg" id="5_mg6vp"]
 [ext_resource type="Texture2D" uid="uid://ygpo5u5k7urn" path="res://UI/buttons/settings.svg" id="6_lyg60"]
 
-[sub_resource type="CodeHighlighter" id="CodeHighlighter_yw2vg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5o0d"]
+bg_color = Color(0.470588, 0.615686, 0.764706, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_6uvcs"]
 script = ExtResource("2_do5bt")
 
 [node name="CanvasLayerUI" type="CanvasLayer"]
@@ -29,11 +40,20 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="TextEdit" type="TextEdit" parent="EditorPanelContainer/TextMarginContainer"]
+[node name="TextMarginContainer" type="MarginContainer" parent="EditorPanelContainer/TextMarginContainer"]
 layout_mode = 2
 theme = ExtResource("1_pnecd")
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="TextEdit" type="TextEdit" parent="EditorPanelContainer/TextMarginContainer/TextMarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_pnecd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n5o0d")
 wrap_mode = 1
-syntax_highlighter = SubResource("CodeHighlighter_yw2vg")
+syntax_highlighter = SubResource("CodeHighlighter_6uvcs")
 script = ExtResource("2_ovmk8")
 
 [node name="Button" type="Button" parent="."]
@@ -42,22 +62,25 @@ anchor_left = 0.333
 anchor_top = 0.415
 anchor_right = 0.354
 anchor_bottom = 0.593
-offset_left = -0.359985
-offset_top = -0.200012
-offset_right = 0.320007
-offset_bottom = -0.440063
+offset_left = -7.36001
+offset_top = -0.199991
+offset_right = 7.32
+offset_bottom = -0.439994
 theme = ExtResource("1_pnecd")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = -1
-anchor_left = 0.947
-anchor_top = 0.564
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -0.23999
-offset_top = -0.119995
+offset_left = -108.0
+offset_top = -439.0
+offset_right = 402.0
+offset_bottom = 1613.0
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(0.2, 0.2)
 alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="VBoxContainer"]

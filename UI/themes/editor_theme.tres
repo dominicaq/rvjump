@@ -1,22 +1,25 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://b1082ki78va7u"]
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_irhva"]
-color = Color(0.988235, 0.972549, 0.85098, 1)
-grow_begin = 0.0
-grow_end = 0.0
-thickness = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3i3c"]
-bg_color = Color(0.984314, 0.964706, 0.901961, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rr2r1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duff3"]
 bg_color = Color(0.992157, 0.964706, 0.890196, 1)
 corner_radius_top_right = 20
-corner_radius_bottom_right = 12
+corner_radius_bottom_right = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3i3c"]
+bg_color = Color(0.862745, 0.878431, 0.639216, 1)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rr2r1"]
+bg_color = Color(0.96354, 0.972424, 0.917592, 1)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
 corner_detail = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wedfy"]
-bg_color = Color(0.980392, 0.984314, 0.760784, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b7qyb"]
+bg_color = Color(0.992157, 0.964706, 0.890196, 1)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kywcs"]
 content_margin_left = 0.0
@@ -33,11 +36,13 @@ bg_color = Color(0.992157, 0.964706, 0.890196, 1)
 
 [resource]
 Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
 Button/colors/icon_normal_color = Color(0, 0, 0, 1)
-Button/styles/focus = SubResource("StyleBoxLine_irhva")
+Button/styles/focus = SubResource("StyleBoxFlat_duff3")
 Button/styles/hover = SubResource("StyleBoxFlat_u3i3c")
 Button/styles/normal = SubResource("StyleBoxFlat_rr2r1")
-Button/styles/pressed = SubResource("StyleBoxFlat_wedfy")
+Button/styles/pressed = SubResource("StyleBoxFlat_b7qyb")
 Panel/styles/panel = SubResource("StyleBoxFlat_kywcs")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_q0a5n")
 TextEdit/colors/background_color = Color(0, 0.168627, 0.211765, 1)

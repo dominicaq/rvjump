@@ -18,34 +18,33 @@ point_count = 7
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(959, 506)
-scale = Vector2(1.77662, 1.77662)
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("1_3ttpq")
 
 [node name="RvJump!" type="Sprite2D" parent="."]
 position = Vector2(942, 220)
-scale = Vector2(1.5042, 1.5042)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_h5u5l")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 1462.0
-offset_top = 807.0
-offset_right = 1862.0
-offset_bottom = 1107.0
-scale = Vector2(1.42, 1.42)
-alignment = 1
+offset_top = 698.0
+offset_right = 2940.0
+offset_bottom = 2023.0
+scale = Vector2(0.32, 0.32)
 
 [node name="Credits" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(0.260742, 67.75)
+position = Vector2(2.08165e-12, 700)
 texture = ExtResource("3_vl7bx")
 centered = false
 
 [node name="Play" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(0.260742, -70.25)
+position = Vector2(2.08165e-12, 2.08165e-12)
 texture = ExtResource("4_7qa2n")
 centered = false
 
 [node name="Levels" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(0.260742, -1.25)
+position = Vector2(2.08165e-12, 350)
 texture = ExtResource("5_mkn44")
 centered = false
 
