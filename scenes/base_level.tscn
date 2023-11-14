@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://h77ofh45y6jg"]
 
-[ext_resource type="Script" path="res://src/rvCamera.gd" id="1_few2w"]
+[ext_resource type="Script" path="res://src/game_camera.gd" id="1_few2w"]
 [ext_resource type="PackedScene" uid="uid://cfn1r4fxqa77u" path="res://UI/interface.tscn" id="2_20pk3"]
 [ext_resource type="ArrayMesh" uid="uid://wahqdn6d1ax3" path="res://assets/rv.vox.obj" id="3_wjdfj"]
 [ext_resource type="Texture2D" uid="uid://ytmq0f64qbay" path="res://assets/rv.vox.png" id="4_pkmmc"]
@@ -86,3 +86,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_tt7fk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Road/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_bibhs")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(8.14395, 0, 0, 0, 18.3016, 0, 0, 0, 1, 0.0014677, 3.29762, -2.91771)
+size = Vector3(1, 0.282221, 0.993399)

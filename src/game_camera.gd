@@ -1,4 +1,4 @@
-class_name RvCamera extends Camera3D
+class_name GameCamera extends Camera3D
 
 # Camera States
 @export var lock_to_rv: bool = false
@@ -7,11 +7,11 @@ class_name RvCamera extends Camera3D
 # Camera Properties
 @export var cam_base_speed: float = 10.0
 @export var cam_shift_speed: float = 20.0
-@export var cam_center_adjustment: Vector3 = Vector3(-3,0,-3)
+@export var cam_center_adjustment: Vector3 = Vector3(-3.0,0.0,-3.0)
 
 # Boundary box
-@export var boundary_width_half: float = 10
-@export var boundary_height_half: float = 5
+@export var boundary_width_half: float = 10.0
+@export var boundary_height_half: float = 5.0
 
 # Private memeber values
 var _current_speed = 0

@@ -1,23 +1,20 @@
 [gd_scene load_steps=8 format=3 uid="uid://cfn1r4fxqa77u"]
 
 [ext_resource type="Theme" uid="uid://b1082ki78va7u" path="res://UI/themes/editor_theme.tres" id="1_pnecd"]
-[ext_resource type="Script" path="res://src/menu/codeHighlighter.gd" id="2_fp707"]
+[ext_resource type="Script" path="res://src/menu/code_editor.gd" id="2_ovmk8"]
+[ext_resource type="SyntaxHighlighter" uid="uid://cbevmq71bygjf" path="res://UI/rsicv_syntax_highlighter.tres" id="2_skjge"]
 [ext_resource type="Texture2D" uid="uid://u3rubww2n3o4" path="res://UI/buttons/start.svg" id="3_kl4op"]
 [ext_resource type="Texture2D" uid="uid://b8sjuprqk0sjq" path="res://UI/buttons/pause.svg" id="4_mr2gb"]
 [ext_resource type="Texture2D" uid="uid://cqttjbpsj61ci" path="res://UI/buttons/rewind.svg" id="5_mg6vp"]
 [ext_resource type="Texture2D" uid="uid://ygpo5u5k7urn" path="res://UI/buttons/settings.svg" id="6_lyg60"]
 
-[sub_resource type="CodeHighlighter" id="CodeHighlighter_l4ed5"]
-script = ExtResource("2_fp707")
-
 [node name="CanvasLayerUI" type="CanvasLayer"]
 
 [node name="EditorPanelContainer" type="PanelContainer" parent="."]
 anchors_preset = -1
-anchor_top = 0.037
 anchor_right = 0.333
 anchor_bottom = 1.0
-offset_top = -41.96
+offset_top = -2.0
 offset_right = -0.360008
 theme = ExtResource("1_pnecd")
 
@@ -33,21 +30,8 @@ theme_override_constants/margin_bottom = 25
 layout_mode = 2
 theme = ExtResource("1_pnecd")
 wrap_mode = 1
-syntax_highlighter = SubResource("CodeHighlighter_l4ed5")
-
-[node name="EditorWidgetContainer" type="HBoxContainer" parent="."]
-layout_direction = 1
-anchors_preset = -1
-anchor_top = 0.0536667
-anchor_right = 0.333
-anchor_bottom = 0.0996667
-offset_left = 1208.0
-offset_top = 257.04
-offset_right = 1207.64
-offset_bottom = 309.36
-size_flags_horizontal = 4
-theme_override_constants/separation = 50
-alignment = 1
+syntax_highlighter = ExtResource("2_skjge")
+script = ExtResource("2_ovmk8")
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = -1
@@ -62,13 +46,13 @@ offset_bottom = -0.440063
 theme = ExtResource("1_pnecd")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = -1
+anchor_left = 0.947
+anchor_top = 0.564
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -102.0
-offset_top = -471.0
+offset_left = -0.23999
+offset_top = -0.119995
 grow_horizontal = 0
 grow_vertical = 0
 alignment = 1
