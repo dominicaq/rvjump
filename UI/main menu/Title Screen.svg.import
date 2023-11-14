@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmm2wl75g0i3m"
-path="res://.godot/imported/rv lineart.svg-e20ec3fc0c1b624b1b6f235836314680.ctex"
+uid="uid://bquykwyx3yjli"
+path="res://.godot/imported/Title Screen.svg-1cb30fb0616b35858a4cd14c2dd5ecc8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/rv lineart.svg"
-dest_files=["res://.godot/imported/rv lineart.svg-e20ec3fc0c1b624b1b6f235836314680.ctex"]
+source_file="res://UI/main menu/Title Screen.svg"
+dest_files=["res://.godot/imported/Title Screen.svg-1cb30fb0616b35858a4cd14c2dd5ecc8.ctex"]
 
 [params]
 

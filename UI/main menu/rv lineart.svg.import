@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djl5dp84sypgh"
-path="res://.godot/imported/rvJUMP!.svg-6abf8fa2311d115b9ef8cdfebc680ec0.ctex"
+uid="uid://bmm2wl75g0i3m"
+path="res://.godot/imported/rv lineart.svg-6afe0e4f753ad05bfeb996f3378875c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/rvJUMP!.svg"
-dest_files=["res://.godot/imported/rvJUMP!.svg-6abf8fa2311d115b9ef8cdfebc680ec0.ctex"]
+source_file="res://UI/main menu/rv lineart.svg"
+dest_files=["res://.godot/imported/rv lineart.svg-6afe0e4f753ad05bfeb996f3378875c8.ctex"]
 
 [params]
 
