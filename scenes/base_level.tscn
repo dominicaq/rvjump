@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://h77ofh45y6jg"]
+[gd_scene load_steps=12 format=3 uid="uid://h77ofh45y6jg"]
 
 [ext_resource type="Script" path="res://src/game_camera.gd" id="1_few2w"]
 [ext_resource type="PackedScene" uid="uid://cfn1r4fxqa77u" path="res://UI/interface.tscn" id="2_20pk3"]
 [ext_resource type="Texture2D" uid="uid://ytmq0f64qbay" path="res://models/rv.vox.png" id="3_kh116"]
 [ext_resource type="ArrayMesh" uid="uid://wahqdn6d1ax3" path="res://models/rv.vox.obj" id="4_v5y5t"]
+[ext_resource type="Script" path="res://scenes/vrv.gd" id="5_xmx72"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c3dvg"]
 albedo_texture = ExtResource("3_kh116")
@@ -87,3 +88,6 @@ shape = SubResource("ConcavePolygonShape3D_bibhs")
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(8.14395, 0, 0, 0, 18.3016, 0, 0, 0, 1, 0.0014677, 3.29762, -2.91771)
 size = Vector3(1, 0.282221, 0.993399)
+
+[node name="GDVRVExt" type="GDVRVExt" parent="."]
+script = ExtResource("5_xmx72")

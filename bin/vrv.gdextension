@@ -1,0 +1,15 @@
+[configuration]
+
+entry_symbol = "vrv_lib_init"
+compatibility_minimum = "4.1"
+
+[libraries]
+
+macos.debug = "res://gd_extensions/build/libgdexample.macos.template_debug.framework"
+macos.release = "res://gd_extensions/build/libgdexample.macos.template_release.framework"
+windows.debug.x86_32 = "res://gd_extensions/build/libgdexample.windows.template_debug.x86_32.dll"
+windows.release.x86_32 = "res://gd_extensions/build/libgdexample.windows.template_release.x86_32.dll"
+windows.debug.x86_64 = "res://gd_extensions/build/libgdexample.windows.template_debug.x86_64.dll"
+windows.release.x86_64 = "res://gd_extensions/build/libgdexample.windows.template_release.x86_64.dll"
+linux.debug.x86_64 = "res://gd_extensions/build/libVRVExt.so"
+linux.release.x86_64 = "res://gd_extensions/build/libVRVExt.so"

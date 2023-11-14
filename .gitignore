@@ -15,8 +15,10 @@ data_*/
 mono_crash.*.json
 
 # Build ignores
-build/
+build*
 .DS_Store
+compile_commands.json
+.cache
 
 target/
 fe/

@@ -1,3 +1,8 @@
-[submodule "godot-cpp"]
-	path = godot-cpp
+[submodule "gd_extensions/godot-cpp"]
+	path = gd_extensions/godot-cpp
 	url = git@github.com:godotengine/godot-cpp.git
+        ignore = all
+[submodule "gd_extensions/vrv/vrv"]
+	path = gd_extensions/vrv/vrv
+	url = https://gitlab.com/luplab/vrv.git
+        ignore = all
