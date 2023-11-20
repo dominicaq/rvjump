@@ -1,26 +1,43 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfn1r4fxqa77u"]
+[gd_scene load_steps=14 format=3 uid="uid://cfn1r4fxqa77u"]
 
 [ext_resource type="Theme" uid="uid://b1082ki78va7u" path="res://UI/themes/editor_theme.tres" id="1_pnecd"]
 [ext_resource type="Script" path="res://src/menu/rsicv_highlight.gd" id="2_do5bt"]
 [ext_resource type="Script" path="res://src/menu/code_editor.gd" id="2_ovmk8"]
-[ext_resource type="Texture2D" uid="uid://u3rubww2n3o4" path="res://UI/buttons/start.svg" id="3_kl4op"]
-[ext_resource type="Texture2D" uid="uid://b8sjuprqk0sjq" path="res://UI/buttons/pause.svg" id="4_mr2gb"]
-[ext_resource type="Texture2D" uid="uid://cqttjbpsj61ci" path="res://UI/buttons/rewind.svg" id="5_mg6vp"]
-[ext_resource type="Texture2D" uid="uid://ygpo5u5k7urn" path="res://UI/buttons/settings.svg" id="6_lyg60"]
+[ext_resource type="Texture2D" uid="uid://csxuidt11eih8" path="res://UI/buttons/start.svg" id="3_kl4op"]
+[ext_resource type="Texture2D" uid="uid://3crugh3p7boa" path="res://UI/buttons/back_button.svg" id="4_b8x4q"]
+[ext_resource type="Texture2D" uid="uid://bcl5dq6ddfx2u" path="res://UI/buttons/pause.svg" id="4_mr2gb"]
+[ext_resource type="Texture2D" uid="uid://bp32hpfxlu6q" path="res://UI/buttons/rewind.svg" id="5_mg6vp"]
+[ext_resource type="Texture2D" uid="uid://bssy1yw1tye4x" path="res://UI/buttons/settings.svg" id="6_lyg60"]
+[ext_resource type="Texture2D" uid="uid://dau36a77uhc5" path="res://UI/buttons/manual.svg" id="8_40rdd"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n5o0d"]
-bg_color = Color(0.470588, 0.615686, 0.764706, 1)
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_6uvcs"]
+script = ExtResource("2_do5bt")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euqb3"]
+bg_color = Color(0.992157, 0.964706, 0.890196, 1)
 border_width_left = 20
 border_width_top = 20
 border_width_right = 20
 border_width_bottom = 20
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+border_color = Color(0, 0.168627, 0.211765, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_color = Color(0, 0.168627, 0.211765, 1)
+shadow_size = 5
+shadow_offset = Vector2(10, 10)
+anti_aliasing = false
 
-[sub_resource type="CodeHighlighter" id="CodeHighlighter_6uvcs"]
-script = ExtResource("2_do5bt")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ldre"]
+bg_color = Color(0, 0.168627, 0.211765, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwa55"]
+bg_color = Color(0, 0.254902, 0.313726, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
 
 [node name="CanvasLayerUI" type="CanvasLayer"]
 
@@ -29,7 +46,7 @@ anchors_preset = -1
 anchor_right = 0.333
 anchor_bottom = 1.0
 offset_top = -2.0
-offset_right = -0.360008
+offset_right = -9.36001
 theme = ExtResource("1_pnecd")
 
 [node name="TextMarginContainer" type="MarginContainer" parent="EditorPanelContainer"]
@@ -37,35 +54,80 @@ layout_mode = 2
 theme = ExtResource("1_pnecd")
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 25
+theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 25
 
 [node name="TextMarginContainer" type="MarginContainer" parent="EditorPanelContainer/TextMarginContainer"]
 layout_mode = 2
 theme = ExtResource("1_pnecd")
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="TextEdit" type="TextEdit" parent="EditorPanelContainer/TextMarginContainer/TextMarginContainer"]
 layout_mode = 2
 theme = ExtResource("1_pnecd")
-theme_override_styles/normal = SubResource("StyleBoxFlat_n5o0d")
 wrap_mode = 1
 syntax_highlighter = SubResource("CodeHighlighter_6uvcs")
+caret_type = 1
+caret_blink = true
 script = ExtResource("2_ovmk8")
+focused = null
+
+[node name="Instructions" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 322.0
+offset_top = -511.0
+offset_right = 930.0
+offset_bottom = -286.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_pnecd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_euqb3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Instructions"]
+layout_mode = 2
+theme = ExtResource("1_pnecd")
+theme_type_variation = &"instruction"
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "uguguy"
 
 [node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 40)
+offset_left = 35.0
+offset_top = 50.0
+offset_right = 135.0
+offset_bottom = 90.0
+theme = ExtResource("1_pnecd")
+theme_type_variation = &"tab"
+theme_override_styles/normal = SubResource("StyleBoxFlat_0ldre")
+
+[node name="Button2" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 40)
+offset_left = 160.0
+offset_top = 50.0
+offset_right = 260.0
+offset_bottom = 90.0
+theme = ExtResource("1_pnecd")
+theme_type_variation = &"tab_2"
+theme_override_styles/normal = SubResource("StyleBoxFlat_pwa55")
+
+[node name="editor_toggle" type="Button" parent="."]
 anchors_preset = -1
 anchor_left = 0.333
 anchor_top = 0.415
 anchor_right = 0.354
 anchor_bottom = 0.593
-offset_left = -7.36001
-offset_top = -0.199991
-offset_right = 7.32
-offset_bottom = -0.439994
+offset_left = -47.36
+offset_top = -1.19999
+offset_right = -17.68
+offset_bottom = -23.44
 theme = ExtResource("1_pnecd")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -74,27 +136,67 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -108.0
-offset_top = -439.0
-offset_right = 402.0
-offset_bottom = 1613.0
+offset_left = -132.0
+offset_top = -650.0
+offset_right = 378.0
+offset_bottom = 2415.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.2, 0.2)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 100
 alignment = 1
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+[node name="play" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("3_kl4op")
 
-[node name="TextureButton2" type="TextureButton" parent="VBoxContainer"]
+[node name="pause" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("4_mr2gb")
 
-[node name="TextureButton3" type="TextureButton" parent="VBoxContainer"]
+[node name="rewind" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_mg6vp")
 
-[node name="TextureButton4" type="TextureButton" parent="VBoxContainer"]
+[node name="settings" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("6_lyg60")
+
+[node name="manual" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_40rdd")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 40.0
+offset_top = 87.0
+offset_right = 40.0
+offset_bottom = 105.0
+
+[node name="LevelComplete" type="PanelContainer" parent="Control"]
+offset_left = 776.0
+offset_top = 286.0
+offset_right = 1544.0
+offset_bottom = 536.0
+theme = ExtResource("1_pnecd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_euqb3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+offset_left = 991.0
+offset_top = 328.0
+offset_right = 1335.0
+offset_bottom = 418.0
+theme = ExtResource("1_pnecd")
+theme_type_variation = &"instruction"
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Level Complete!"
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+offset_left = 1036.0
+offset_top = 399.0
+offset_right = 1286.0
+offset_bottom = 505.0
+texture_normal = ExtResource("4_b8x4q")

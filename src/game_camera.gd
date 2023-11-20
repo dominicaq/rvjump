@@ -11,7 +11,7 @@ class_name GameCamera extends Camera3D
 
 # Boundary box
 @export var boundary_width_half: float = 10.0
-@export var boundary_height_half: float = 5.0
+@export var boundary_height_half: float = 1.0
 
 # Private memeber values
 var _current_speed = 0
@@ -24,6 +24,9 @@ func _ready():
 	_transform = get_camera_transform()
 	_target_position = self.position
 	_current_speed = cam_base_speed
+	
+	var rv_pos = GameManager.get_rv_position()
+	_target_position = look_at_target(rv_pos)
 
 func _input(event):
 	if disable_movement or lock_to_rv:

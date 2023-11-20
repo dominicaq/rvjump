@@ -1,9 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://be50dd8ke5chq"]
+[gd_scene load_steps=21 format=3 uid="uid://be50dd8ke5chq"]
 
 [ext_resource type="Script" path="res://src/game_camera.gd" id="1_cyg2d"]
 [ext_resource type="PackedScene" uid="uid://cfn1r4fxqa77u" path="res://UI/interface.tscn" id="2_jkq6v"]
-[ext_resource type="Script" path="res://src/rv_animate.gd" id="3_4xgv5"]
 [ext_resource type="Texture2D" uid="uid://ytmq0f64qbay" path="res://models/rv.vox.png" id="3_dx3ky"]
+[ext_resource type="Script" path="res://src/rv.gd" id="3_wdr2a"]
 [ext_resource type="ArrayMesh" uid="uid://wahqdn6d1ax3" path="res://models/rv.vox.obj" id="4_r6gc1"]
 [ext_resource type="Texture2D" uid="uid://c08rjli0ujjtm" path="res://models/island_basic.vox.png" id="5_kmw3r"]
 [ext_resource type="ArrayMesh" uid="uid://d012oaeqqo7aw" path="res://models/island_basic.vox.obj" id="6_jtb7w"]
@@ -12,7 +12,19 @@
 [ext_resource type="Texture2D" uid="uid://b105bwml8ywgw" path="res://models/island_turn.vox.png" id="9_5l4kc"]
 [ext_resource type="ArrayMesh" uid="uid://bybkth6q11vof" path="res://models/island_turn.vox.obj" id="10_7qn68"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1qa5f"]
+ground_bottom_color = Color(0.211765, 0.337255, 0.407843, 1)
+ground_horizon_color = Color(0.466667, 0.690196, 0.796078, 1)
+ground_curve = 0.242514
+ground_energy_multiplier = 1.59
+
+[sub_resource type="Sky" id="Sky_pibkg"]
+sky_material = SubResource("ProceduralSkyMaterial_1qa5f")
+
 [sub_resource type="Environment" id="Environment_ml7x1"]
+background_mode = 2
+sky = SubResource("Sky_pibkg")
+ambient_light_color = Color(0.670588, 0.756863, 0.92549, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c3dvg"]
 albedo_texture = ExtResource("3_dx3ky")
@@ -35,10 +47,12 @@ albedo_texture = ExtResource("9_5l4kc")
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.72269, 0.61828, -0.30895, 9.89672e-09, 0.446994, 0.894537, 0.691173, -0.646473, 0.323038, -0.379, 20, 1.566)
+transform = Transform3D(0.72269, 0.61828, -0.30895, 9.89672e-09, 0.446994, 0.894537, 0.691173, -0.646473, 0.323038, -0.379, 10, 1.566)
 environment = SubResource("Environment_ml7x1")
+current = true
 near = 0.01
 script = ExtResource("1_cyg2d")
+cam_center_adjustment = Vector3(-3, 2.08165e-12, -3)
 boundary_width_half = 20.0
 boundary_height_half = 20.0
 
@@ -63,14 +77,14 @@ metadata/_edit_use_anchors_ = true
 [node name="CanvasLayerUI" parent="Control" instance=ExtResource("2_jkq6v")]
 
 [node name="rv" type="RigidBody3D" parent="."]
-transform = Transform3D(0.4, -1.39515e-16, 1.39515e-16, 1.39515e-16, 0.4, -1.39515e-16, -1.39515e-16, 1.39515e-16, 0.4, -6, 2.492, 6)
+transform = Transform3D(0.5, -1.74394e-16, 1.74394e-16, 1.74394e-16, 0.5, -1.74394e-16, -1.74394e-16, 1.74394e-16, 0.5, -6, 2.492, 6)
 linear_velocity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
 angular_velocity = Vector3(3.63316e-14, 3.63316e-14, 3.63316e-14)
 constant_force = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
-script = ExtResource("3_4xgv5")
+script = ExtResource("3_wdr2a")
 
 [node name="RVMesh" type="MeshInstance3D" parent="rv"]
-transform = Transform3D(0.5, 0, 8.88178e-16, 0, 0.5, 0, -3.84868e-16, 0, 0.5, 2.08165e-12, 2.08165e-12, 0.4)
+transform = Transform3D(0.2, 0, 1.53947e-16, 0, 0.2, 0, -1.53947e-16, 0, 0.2, 2.08165e-12, 2.08165e-12, 0.4)
 material_override = SubResource("StandardMaterial3D_c3dvg")
 mesh = ExtResource("4_r6gc1")
 

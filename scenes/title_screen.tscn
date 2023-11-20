@@ -1,25 +1,25 @@
 [gd_scene load_steps=9 format=3 uid="uid://cewvq7m0mkill"]
 
-[ext_resource type="Texture2D" uid="uid://bquykwyx3yjli" path="res://UI/main menu/Title Screen.svg" id="1_3ttpq"]
-[ext_resource type="Texture2D" uid="uid://djl5dp84sypgh" path="res://UI/main menu/rvJUMP!.svg" id="2_h5u5l"]
+[ext_resource type="Texture2D" uid="uid://c1eunhp4ruqh4" path="res://UI/main menu/title_bg.png" id="1_enb01"]
+[ext_resource type="Texture2D" uid="uid://bvu4d7yjowvx7" path="res://UI/main menu/rvJUMP!.svg" id="2_h5u5l"]
 [ext_resource type="Texture2D" uid="uid://bjhxsq35m7t5l" path="res://UI/buttons/credits.svg" id="3_vl7bx"]
 [ext_resource type="Texture2D" uid="uid://b7iu7wdtaage0" path="res://UI/buttons/play.svg" id="4_7qa2n"]
 [ext_resource type="Texture2D" uid="uid://vyveoxbf3xmw" path="res://UI/buttons/levels.svg" id="5_mkn44"]
-[ext_resource type="Script" path="res://src/menu/TitleScreenAnimation.gd" id="6_fbbh8"]
-[ext_resource type="Texture2D" uid="uid://bmm2wl75g0i3m" path="res://UI/main menu/rv lineart.svg" id="7_vjmxt"]
+[ext_resource type="Script" path="res://src/menu/title_screen_animation.gd" id="6_0xst0"]
+[ext_resource type="Texture2D" uid="uid://druquyo81tygf" path="res://UI/main menu/rv_lineart.svg" id="7_8s7go"]
 
 [sub_resource type="Curve2D" id="Curve2D_6gnoj"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -20, 571, -171.067, 1.19192, 171.067, -1.19192, 189, 522, -81.5816, -81.373, 81.5816, 81.373, 561.412, 757.726, -173.443, 65.5558, 173.443, -65.5558, 900, 819, -125.47, 80.8615, 125.47, -80.8615, 1316.85, 575.43, -147.337, 0, 147.337, 0, 1641, 472, -134.192, -97.5374, 134.192, 97.5374, 2028.52, 622.114)
+"points": PackedVector2Array(0, 0, 0, 0, 4.90028, 544.844, -207.495, 14.8063, 207.495, -14.8063, 154.19, 559.987, -81.5816, -81.373, 81.5816, 81.373, 573.664, 745.511, -136.701, 122.737, 136.701, -122.737, 875.34, 639.66, -229.571, -93.8014, 229.571, 93.8014, 1402.08, 579.336, -105.203, -38.0521, 105.203, 38.0521, 1689.5, 730.368, -247.041, 13.7062, 247.041, -13.7062, 2042.89, 730.368)
 }
 point_count = 7
 
 [node name="title_screen" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(959, 506)
-scale = Vector2(0.9, 0.9)
-texture = ExtResource("1_3ttpq")
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("1_enb01")
+centered = false
 
 [node name="RvJump!" type="Sprite2D" parent="."]
 position = Vector2(942, 220)
@@ -27,11 +27,12 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_h5u5l")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 1462.0
-offset_top = 698.0
-offset_right = 2940.0
-offset_bottom = 2023.0
-scale = Vector2(0.32, 0.32)
+offset_left = 787.0
+offset_top = 366.0
+offset_right = 1879.0
+offset_bottom = 1345.0
+scale = Vector2(0.24, 0.24)
+alignment = 1
 
 [node name="Credits" type="Sprite2D" parent="VBoxContainer"]
 position = Vector2(2.08165e-12, 700)
@@ -50,20 +51,20 @@ centered = false
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-55, 0)
-script = ExtResource("6_fbbh8")
+script = ExtResource("6_0xst0")
 
 [node name="Path2D" type="Path2D" parent="Node2D"]
-position = Vector2(21, 71)
-scale = Vector2(1.00467, 0.981991)
+position = Vector2(-59, 233)
+scale = Vector2(1.04417, 0.878592)
 curve = SubResource("Curve2D_6gnoj")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Node2D/Path2D"]
-position = Vector2(-20, 571)
-rotation = -0.23029
+position = Vector2(4.90028, 544.844)
+rotation = 0.101088
 
 [node name="RvLineart" type="Sprite2D" parent="Node2D/Path2D/PathFollow2D"]
 position = Vector2(9.58694, -40.8912)
 rotation = -0.0492751
-scale = Vector2(1.03084, 1.00567)
-texture = ExtResource("7_vjmxt")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_8s7go")
 flip_h = true

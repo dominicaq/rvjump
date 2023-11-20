@@ -7,4 +7,4 @@ func _input(_event):
 	if GameManager.game_state == Enums.GameState.TYPING:
 		self.grab_focus()
 	elif GameManager.game_state == Enums.GameState.FREECAMERA:
-		self.release_focus()
+		#self.release_focus()
