@@ -3,6 +3,7 @@ extends Node3D
 # Game Properties
 @export var is_playing: bool = false
 var game_state: Enums.GameState
+var current_code: String
 
 # RV
 var _rv: RigidBody3D
@@ -33,8 +34,6 @@ func _input(event):
 				game_state = Enums.GameState.TYPING
 
 # called on intialization, gives buttons events
-func _assign_buttons():
-	return null
 
 func _process(_delta):
 	is_playing = game_state == Enums.GameState.PLAYING
@@ -42,22 +41,22 @@ func _process(_delta):
 func _execute():
 	var end_reached = false
 	var step_count = 0
-	while(is_playing and end_reached):
+	while(is_playing and !end_reached):
 		step_count += 1
-	return null
 
-func _play_button():
-	return null
+func _play_button(code: String):
+	print(code)
+	print("play button!")
 	
 func _pause_button():
+	print("pause button!")
 	is_playing = false
-	return null
 
 func _restart_button():
-	return null
+	print("restart button!")
 	
 func _menu_button():
-	return null
+	print("menu button!")
 
 func _manual_button():
-	return null
+	print("manual button!")

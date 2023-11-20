@@ -13,7 +13,7 @@ var forward_vec: Vector3 = Vector3(6,5,0)
 func _ready():
 	_act(Action.FORWARD)
 	await get_tree().create_timer(2.0).timeout
-	_act(Action.ROTATE_LEFT)
+	_act(Action.ROTATE_RIGHT)
 	await get_tree().create_timer(1).timeout
 	_act(Action.FORWARD)
 	pass # Replace with function body.
@@ -35,8 +35,10 @@ func _act(move_code: Action):
 			rotate_y(deg_to_rad(90))
 			pass
 		Action.ROTATE_RIGHT:
-			pass
-		_:
+			forward_vec = forward_vec.rotated(Vector3(0,1,0), deg_to_rad(-90))
+			# set_linear_velocity(Vector3(0,5,0))
+			await get_tree().create_timer(0.3).timeout
+			rotate_y(deg_to_rad(-90))
 			pass # Default
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

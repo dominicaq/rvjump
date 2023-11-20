@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cewvq7m0mkill"]
+[gd_scene load_steps=10 format=3 uid="uid://cewvq7m0mkill"]
 
 [ext_resource type="Texture2D" uid="uid://c1eunhp4ruqh4" path="res://UI/main menu/title_bg.png" id="1_enb01"]
+[ext_resource type="Script" path="res://src/scene_transitioner.gd" id="1_p23fv"]
 [ext_resource type="Texture2D" uid="uid://bvu4d7yjowvx7" path="res://UI/main menu/rvJUMP!.svg" id="2_h5u5l"]
-[ext_resource type="Texture2D" uid="uid://bjhxsq35m7t5l" path="res://UI/buttons/credits.svg" id="3_vl7bx"]
-[ext_resource type="Texture2D" uid="uid://b7iu7wdtaage0" path="res://UI/buttons/play.svg" id="4_7qa2n"]
-[ext_resource type="Texture2D" uid="uid://vyveoxbf3xmw" path="res://UI/buttons/levels.svg" id="5_mkn44"]
+[ext_resource type="Texture2D" uid="uid://blaj6s63nov37" path="res://UI/main menu/title_credits.svg" id="4_ebqfw"]
+[ext_resource type="Texture2D" uid="uid://cakgv2els1652" path="res://UI/main menu/title_levels.svg" id="5_svcfe"]
 [ext_resource type="Script" path="res://src/menu/title_screen_animation.gd" id="6_0xst0"]
+[ext_resource type="Texture2D" uid="uid://dnjm86uqtff0n" path="res://UI/main menu/title_play.svg" id="6_nkhkl"]
 [ext_resource type="Texture2D" uid="uid://druquyo81tygf" path="res://UI/main menu/rv_lineart.svg" id="7_8s7go"]
 
 [sub_resource type="Curve2D" id="Curve2D_6gnoj"]
@@ -15,6 +16,7 @@ _data = {
 point_count = 7
 
 [node name="title_screen" type="Node2D"]
+script = ExtResource("1_p23fv")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
@@ -31,23 +33,20 @@ offset_left = 787.0
 offset_top = 366.0
 offset_right = 1879.0
 offset_bottom = 1345.0
-scale = Vector2(0.24, 0.24)
+scale = Vector2(0.2, 0.2)
 alignment = 1
 
-[node name="Credits" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(2.08165e-12, 700)
-texture = ExtResource("3_vl7bx")
-centered = false
+[node name="Credits" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_ebqfw")
 
-[node name="Play" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(2.08165e-12, 2.08165e-12)
-texture = ExtResource("4_7qa2n")
-centered = false
+[node name="Levels" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_svcfe")
 
-[node name="Levels" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(2.08165e-12, 350)
-texture = ExtResource("5_mkn44")
-centered = false
+[node name="Play" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_nkhkl")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-55, 0)
@@ -68,3 +67,7 @@ rotation = -0.0492751
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_8s7go")
 flip_h = true
+
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_credits"]
+[connection signal="pressed" from="VBoxContainer/Levels" to="." method="_level_select"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_play"]

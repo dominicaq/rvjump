@@ -9,12 +9,9 @@ var t: Array[PackedFloat32Array] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	for i in range(0,8):
+		a.append(0.0)
+		t.append(0.0)
 	
 func _parse_and_act():
 	# load instructions in array
@@ -35,3 +32,6 @@ func _parse_and_act():
 	# is label?
 	# if not, throw?
 	pass
+
+func _process_ecall():
+	

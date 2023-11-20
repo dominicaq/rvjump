@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://cfn1r4fxqa77u"]
+[gd_scene load_steps=18 format=3 uid="uid://cfn1r4fxqa77u"]
 
+[ext_resource type="Script" path="res://src/canvas_manager.gd" id="1_1ylhm"]
 [ext_resource type="Theme" uid="uid://b1082ki78va7u" path="res://UI/themes/editor_theme.tres" id="1_pnecd"]
 [ext_resource type="Script" path="res://src/menu/rsicv_highlight.gd" id="2_do5bt"]
 [ext_resource type="Script" path="res://src/menu/code_editor.gd" id="2_ovmk8"]
@@ -34,12 +35,28 @@ bg_color = Color(0, 0.168627, 0.211765, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8nkf"]
+bg_color = Color(0, 0.168627, 0.211765, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58j5j"]
+bg_color = Color(0.269105, 0.416061, 0.499734, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwa55"]
 bg_color = Color(0, 0.254902, 0.313726, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_riqtu"]
+bg_color = Color(0.211348, 0.336353, 0.407332, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+
 [node name="CanvasLayerUI" type="CanvasLayer"]
+script = ExtResource("1_1ylhm")
 
 [node name="EditorPanelContainer" type="PanelContainer" parent="."]
 anchors_preset = -1
@@ -98,7 +115,7 @@ theme_type_variation = &"instruction"
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "uguguy"
 
-[node name="Button" type="Button" parent="."]
+[node name="Tab" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 40)
 offset_left = 35.0
 offset_top = 50.0
@@ -107,16 +124,21 @@ offset_bottom = 90.0
 theme = ExtResource("1_pnecd")
 theme_type_variation = &"tab"
 theme_override_styles/normal = SubResource("StyleBoxFlat_0ldre")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y8nkf")
+theme_override_styles/focus = SubResource("StyleBoxFlat_58j5j")
 
-[node name="Button2" type="Button" parent="."]
+[node name="Tab2" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 40)
 offset_left = 160.0
 offset_top = 50.0
 offset_right = 260.0
 offset_bottom = 90.0
 theme = ExtResource("1_pnecd")
-theme_type_variation = &"tab_2"
+theme_type_variation = &"tab"
 theme_override_styles/normal = SubResource("StyleBoxFlat_pwa55")
+theme_override_styles/hover = SubResource("StyleBoxFlat_riqtu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_58j5j")
+theme_override_styles/focus = SubResource("StyleBoxFlat_58j5j")
 
 [node name="editor_toggle" type="Button" parent="."]
 anchors_preset = -1
@@ -130,7 +152,7 @@ offset_right = -17.68
 offset_bottom = -23.44
 theme = ExtResource("1_pnecd")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="right_buttons" type="VBoxContainer" parent="."]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -148,27 +170,29 @@ size_flags_vertical = 8
 theme_override_constants/separation = 100
 alignment = 1
 
-[node name="play" type="TextureButton" parent="VBoxContainer"]
+[node name="play" type="TextureButton" parent="right_buttons"]
 layout_mode = 2
+theme = ExtResource("1_pnecd")
 texture_normal = ExtResource("3_kl4op")
 
-[node name="pause" type="TextureButton" parent="VBoxContainer"]
+[node name="pause" type="TextureButton" parent="right_buttons"]
 layout_mode = 2
 texture_normal = ExtResource("4_mr2gb")
 
-[node name="rewind" type="TextureButton" parent="VBoxContainer"]
+[node name="rewind" type="TextureButton" parent="right_buttons"]
 layout_mode = 2
 texture_normal = ExtResource("5_mg6vp")
 
-[node name="settings" type="TextureButton" parent="VBoxContainer"]
+[node name="settings" type="TextureButton" parent="right_buttons"]
 layout_mode = 2
 texture_normal = ExtResource("6_lyg60")
 
-[node name="manual" type="TextureButton" parent="VBoxContainer"]
+[node name="manual" type="TextureButton" parent="right_buttons"]
 layout_mode = 2
 texture_normal = ExtResource("8_40rdd")
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 40.0
@@ -177,6 +201,7 @@ offset_right = 40.0
 offset_bottom = 105.0
 
 [node name="LevelComplete" type="PanelContainer" parent="Control"]
+layout_mode = 0
 offset_left = 776.0
 offset_top = 286.0
 offset_right = 1544.0
@@ -185,6 +210,7 @@ theme = ExtResource("1_pnecd")
 theme_override_styles/panel = SubResource("StyleBoxFlat_euqb3")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
 offset_left = 991.0
 offset_top = 328.0
 offset_right = 1335.0
@@ -195,8 +221,15 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Level Complete!"
 
 [node name="TextureButton" type="TextureButton" parent="Control"]
+layout_mode = 0
 offset_left = 1036.0
 offset_top = 399.0
 offset_right = 1286.0
 offset_bottom = 505.0
 texture_normal = ExtResource("4_b8x4q")
+
+[connection signal="pressed" from="right_buttons/play" to="." method="_play_button"]
+[connection signal="pressed" from="right_buttons/pause" to="." method="_pause_button"]
+[connection signal="pressed" from="right_buttons/rewind" to="." method="_restart_button"]
+[connection signal="pressed" from="right_buttons/settings" to="." method="_menu_button"]
+[connection signal="pressed" from="right_buttons/manual" to="." method="_manual_button"]
