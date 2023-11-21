@@ -24,3 +24,5 @@ func _menu_button():
 func _manual_button():
 	game_manager._manual_button()
 
+func _on_world_area():
+	game_manager.game_state = Enums.GameState.FREECAMERA

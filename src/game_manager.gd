@@ -3,7 +3,7 @@ extends Node3D
 # Game Properties
 @export var is_playing: bool = false
 var game_state: Enums.GameState
-var current_code: String
+var hit_finish: bool = false
 
 # RV
 var _rv: RigidBody3D
@@ -12,16 +12,23 @@ var _rv: RigidBody3D
 var _game_camera: GameCamera 
 
 func _ready():
-	# Setup game
+	pass
+	
+func setup_level():
+	print("lvl set up")
+	_rv = get_node("/root/Node3D/rv")
+	
 	_game_camera = get_node("/root/Node3D/Camera3D")
 	_game_camera.disable_movement = false
 	game_state = Enums.GameState.FREECAMERA
 	
 	# TODO: Temp, should update whenever the gets reset
-	_rv = get_node("/root/Node3D/rv")
 
 func get_rv_position() -> Vector3:
-	return _rv.get_transform().origin #_rv_transform.origin
+	print("get rv pos")
+	if(_rv):
+		return _rv.get_transform().origin #_rv_transform.origin
+	return Vector3(0,0,0)
 	
 func _input(event):
 	if event.is_action_pressed("change_mode") and !is_playing:
@@ -33,30 +40,30 @@ func _input(event):
 				_game_camera.disable_movement = true
 				game_state = Enums.GameState.TYPING
 
-# called on intialization, gives buttons events
-
-func _process(_delta):
-	is_playing = game_state == Enums.GameState.PLAYING
-	
-func _execute():
-	var end_reached = false
-	var step_count = 0
-	while(is_playing and !end_reached):
-		step_count += 1
-
 func _play_button(code: String):
 	print(code)
-	print("play button!")
+	PseudoParser._parse(code)
+	if (!PseudoParser.running):
+		PseudoParser._setstate(true)
+		PseudoParser._run()
+	
+	print("playing")
 	
 func _pause_button():
 	print("pause button!")
+	PseudoParser._setstate(false)
 	is_playing = false
 
 func _restart_button():
+	PseudoParser._restart()
+	_rv._reset()
 	print("restart button!")
 	
 func _menu_button():
-	print("menu button!")
+	print("fake continue button!")
+	if (!PseudoParser.running):
+		PseudoParser._setstate(true)
+		PseudoParser._run()
 
 func _manual_button():
 	print("manual button!")

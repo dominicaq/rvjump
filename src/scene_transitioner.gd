@@ -20,4 +20,4 @@ func _credits():
 	get_tree().change_scene_to_file("res://scenes/credits.tscn")
 	
 func _play():
-	get_tree().change_scene_to_file("res://scenes/unity_demo.tscn")
+	await get_tree().change_scene_to_file("res://scenes/unity_demo.tscn")

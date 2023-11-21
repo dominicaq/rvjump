@@ -58,6 +58,12 @@ corner_radius_top_right = 15
 [node name="CanvasLayerUI" type="CanvasLayer"]
 script = ExtResource("1_1ylhm")
 
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 634.0
+offset_right = 1932.0
+offset_bottom = 1093.0
+
 [node name="EditorPanelContainer" type="PanelContainer" parent="."]
 anchors_preset = -1
 anchor_right = 0.333
@@ -90,7 +96,6 @@ syntax_highlighter = SubResource("CodeHighlighter_6uvcs")
 caret_type = 1
 caret_blink = true
 script = ExtResource("2_ovmk8")
-focused = null
 
 [node name="Instructions" type="PanelContainer" parent="."]
 visible = false
@@ -228,6 +233,8 @@ offset_right = 1286.0
 offset_bottom = 505.0
 texture_normal = ExtResource("4_b8x4q")
 
+[connection signal="pressed" from="Button" to="." method="_on_world_area"]
+[connection signal="focus_entered" from="EditorPanelContainer/TextMarginContainer/TextMarginContainer/TextEdit" to="EditorPanelContainer/TextMarginContainer/TextMarginContainer/TextEdit" method="_focus_entered"]
 [connection signal="pressed" from="right_buttons/play" to="." method="_play_button"]
 [connection signal="pressed" from="right_buttons/pause" to="." method="_pause_button"]
 [connection signal="pressed" from="right_buttons/rewind" to="." method="_restart_button"]

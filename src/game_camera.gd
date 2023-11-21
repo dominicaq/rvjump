@@ -29,7 +29,7 @@ func _ready():
 	_target_position = look_at_target(rv_pos)
 
 func _input(event):
-	if disable_movement or lock_to_rv:
+	if disable_movement or lock_to_rv or GameManager.game_state == Enums.GameState.TYPING:
 		_raw_input = Vector2.ZERO
 		return
 
