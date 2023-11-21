@@ -19,5 +19,9 @@ func _level_select():
 func _credits():
 	get_tree().change_scene_to_file("res://scenes/credits.tscn")
 	
-func _play():
-	await get_tree().change_scene_to_file("res://scenes/unity_demo.tscn")
+func _play(level: int):
+	await get_tree().change_scene_to_file(str("res://scenes/levels/level_", level, ".tscn"))
+
+
+func _on_texture_button_pressed():
+	pass # Replace with function body.

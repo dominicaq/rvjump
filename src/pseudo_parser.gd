@@ -15,6 +15,7 @@ var lines = []
 var running: bool = false
 var labels = []
 var milk = false
+var called_exit = false
 
 # objs
 var rv: RigidBody3D
@@ -51,12 +52,20 @@ func _restart():
 	steps = 0
 	ret_line = 0
 	running = false
+	called_exit = false
 
 func _setstate(state: bool):
 	running = state
 
 func _run():
 	while(running and l < len(lines)):
+		if (called_exit):
+			running = false
+			GameManager._level_complete()
+			print("AAAAA")
+			return 0
+		if(called_exit):
+			continue
 		var line = lines[l].split(" ", true)
 		match(line[0]):
 			"li":
@@ -74,7 +83,8 @@ func _run():
 				# if not, throw?
 				pass
 		l += 1
-	pass
+	
+	
 
 func _map_val(call: String):
 	match(call):
@@ -90,7 +100,6 @@ func _map_val(call: String):
 			return 0.0
 		_:
 			return call.to_float()		
-	pass
 
 func _process_ecall(call: float):
 	print("processing ", call)
@@ -109,7 +118,9 @@ func _process_ecall(call: float):
 			await rv._act(rv.Action.ROTATE_RIGHT)
 			return 0
 		0.0:
-			pass
+			called_exit = true
+			GameManager._level_complete()
+			return 0
 		_:
 			return -1
 	return 0

@@ -176,4 +176,8 @@ offset_bottom = 1074.0
 scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("2_cbbpm")
 
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/TextureButton" to="." method="_play" binds= [1]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/TextureButton2" to="." method="_play" binds= [2]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/TextureButton3" to="." method="_play" binds= [3]]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/TextureButton4" to="." method="_play" binds= [4]]
 [connection signal="pressed" from="TextureButton" to="." method="_main_menu"]

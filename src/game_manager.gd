@@ -11,9 +11,6 @@ var _rv: RigidBody3D
 # Nodes
 var _game_camera: GameCamera 
 
-func _ready():
-	pass
-	
 func setup_level():
 	print("lvl set up")
 	_rv = get_node("/root/Node3D/rv")
@@ -42,8 +39,8 @@ func _input(event):
 
 func _play_button(code: String):
 	print(code)
-	PseudoParser._parse(code)
 	if (!PseudoParser.running):
+		PseudoParser._parse(code)
 		PseudoParser._setstate(true)
 		PseudoParser._run()
 	
@@ -67,3 +64,12 @@ func _menu_button():
 
 func _manual_button():
 	print("manual button!")
+	
+func _level_complete():
+	get_node("/root/Node3D/Control/CanvasLayerUI/")._toggle_level_complete()
+	
+func _fail():
+	_restart_button()
+	
+		
+		

@@ -70,4 +70,4 @@ flip_h = true
 
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_credits"]
 [connection signal="pressed" from="VBoxContainer/Levels" to="." method="_level_select"]
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_play"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_play" binds= [1]]

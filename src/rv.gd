@@ -14,6 +14,11 @@ var starting_pos: Vector3
 func _ready():
 	starting_pos = position
 	pass # Replace with function body.
+	
+func _process(delta):
+	if position.y < -10:
+		GameManager._fail()
+		_reset()
 
 func _act(move_code: Action):
 	print("acting")

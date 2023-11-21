@@ -1,18 +1,17 @@
-[gd_scene load_steps=24 format=3 uid="uid://be50dd8ke5chq"]
+[gd_scene load_steps=22 format=3 uid="uid://c11hj0n56oir8"]
 
-[ext_resource type="Script" path="res://src/game_camera.gd" id="1_cyg2d"]
-[ext_resource type="Script" path="res://scenes/level.gd" id="1_guq6s"]
-[ext_resource type="PackedScene" uid="uid://cfn1r4fxqa77u" path="res://UI/interface.tscn" id="2_jkq6v"]
-[ext_resource type="Texture2D" uid="uid://ytmq0f64qbay" path="res://models/rv.vox.png" id="3_dx3ky"]
-[ext_resource type="Script" path="res://src/rv.gd" id="3_wdr2a"]
-[ext_resource type="ArrayMesh" uid="uid://wahqdn6d1ax3" path="res://models/rv.vox.obj" id="4_r6gc1"]
-[ext_resource type="Texture2D" uid="uid://c08rjli0ujjtm" path="res://models/island_basic.vox.png" id="5_kmw3r"]
-[ext_resource type="ArrayMesh" uid="uid://d012oaeqqo7aw" path="res://models/island_basic.vox.obj" id="6_jtb7w"]
-[ext_resource type="Texture2D" uid="uid://5cla4bxa4cnb" path="res://models/island_finish.vox.png" id="7_j2dew"]
-[ext_resource type="ArrayMesh" uid="uid://dufdq5xapb8np" path="res://models/island_finish.vox.obj" id="8_5rm3k"]
-[ext_resource type="Texture2D" uid="uid://b105bwml8ywgw" path="res://models/island_turn.vox.png" id="9_5l4kc"]
-[ext_resource type="ArrayMesh" uid="uid://bybkth6q11vof" path="res://models/island_turn.vox.obj" id="10_7qn68"]
-[ext_resource type="Script" path="res://scenes/FinishCollider.gd" id="10_gguqo"]
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_cig86"]
+[ext_resource type="Script" path="res://src/game_camera.gd" id="2_bbuhu"]
+[ext_resource type="Script" path="res://scenes/levels/Populate Level 4.gd" id="2_m4of2"]
+[ext_resource type="PackedScene" uid="uid://cfn1r4fxqa77u" path="res://UI/interface.tscn" id="3_nwmls"]
+[ext_resource type="Script" path="res://src/rv.gd" id="4_pkbke"]
+[ext_resource type="Texture2D" uid="uid://ytmq0f64qbay" path="res://models/rv.vox.png" id="5_0mlkj"]
+[ext_resource type="ArrayMesh" uid="uid://wahqdn6d1ax3" path="res://models/rv.vox.obj" id="6_x8p2l"]
+[ext_resource type="Texture2D" uid="uid://c08rjli0ujjtm" path="res://models/island_basic.vox.png" id="7_203ix"]
+[ext_resource type="ArrayMesh" uid="uid://d012oaeqqo7aw" path="res://models/island_basic.vox.obj" id="8_mnuws"]
+[ext_resource type="Script" path="res://scenes/FinishCollider.gd" id="9_sx7my"]
+[ext_resource type="Texture2D" uid="uid://5cla4bxa4cnb" path="res://models/island_finish.vox.png" id="10_01ib0"]
+[ext_resource type="ArrayMesh" uid="uid://dufdq5xapb8np" path="res://models/island_finish.vox.obj" id="11_tvhe0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1qa5f"]
 ground_bottom_color = Color(0.211765, 0.337255, 0.407843, 1)
@@ -29,13 +28,13 @@ sky = SubResource("Sky_pibkg")
 ambient_light_color = Color(0.670588, 0.756863, 0.92549, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c3dvg"]
-albedo_texture = ExtResource("3_dx3ky")
+albedo_texture = ExtResource("5_0mlkj")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vw0xj"]
 size = Vector3(3.59057, 1.54655, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axjsp"]
-albedo_texture = ExtResource("5_kmw3r")
+albedo_texture = ExtResource("7_203ix")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bibhs"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
@@ -43,20 +42,24 @@ data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_ckbdj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_einmq"]
-albedo_texture = ExtResource("7_j2dew")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w6uc7"]
-albedo_texture = ExtResource("9_5l4kc")
+albedo_texture = ExtResource("10_01ib0")
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_guq6s")
+script = ExtResource("1_cig86")
+
+[node name="Populate Level 4" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_m4of2")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.72269, 0.61828, -0.30895, 9.89672e-09, 0.446994, 0.894537, 0.691173, -0.646473, 0.323038, -0.379, 10, 1.566)
 environment = SubResource("Environment_ml7x1")
 current = true
 near = 0.01
-script = ExtResource("1_cyg2d")
+script = ExtResource("2_bbuhu")
 cam_center_adjustment = Vector3(-3, 2.08165e-12, -3)
 boundary_width_half = 20.0
 boundary_height_half = 20.0
@@ -79,19 +82,19 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="CanvasLayerUI" parent="Control" instance=ExtResource("2_jkq6v")]
+[node name="CanvasLayerUI" parent="Control" instance=ExtResource("3_nwmls")]
 
 [node name="rv" type="RigidBody3D" parent="."]
 transform = Transform3D(0.5, -1.74394e-16, 1.74394e-16, 1.74394e-16, 0.5, -1.74394e-16, -1.74394e-16, 1.74394e-16, 0.5, -6, 2.492, 6)
 linear_velocity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
 angular_velocity = Vector3(3.63316e-14, 3.63316e-14, 3.63316e-14)
 constant_force = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
-script = ExtResource("3_wdr2a")
+script = ExtResource("4_pkbke")
 
 [node name="RVMesh" type="MeshInstance3D" parent="rv"]
 transform = Transform3D(0.2, 0, 1.53947e-16, 0, 0.2, 0, -1.53947e-16, 0, 0.2, 2.08165e-12, 2.08165e-12, 0.4)
 material_override = SubResource("StandardMaterial3D_c3dvg")
-mesh = ExtResource("4_r6gc1")
+mesh = ExtResource("6_x8p2l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="rv"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.32085, -0.2, 0.6, -0.2)
@@ -100,7 +103,7 @@ shape = SubResource("BoxShape3D_vw0xj")
 [node name="IslandBasic_vox" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2.08165e-12, 6)
 material_override = SubResource("StandardMaterial3D_axjsp")
-mesh = ExtResource("6_jtb7w")
+mesh = ExtResource("8_mnuws")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="IslandBasic_vox"]
 transform = Transform3D(40, 0, 0, 0, 3.5, 0, 0, 0, 40, 2.08165e-12, 2.4, 2.08165e-12)
@@ -110,12 +113,12 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_bibhs")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, 2.08165e-12, 2.41434, 2.08165e-12)
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 48, 2.414, 6)
 max_contacts_reported = 1
 contact_monitor = true
 freeze = true
 freeze_mode = 1
-script = ExtResource("10_gguqo")
+script = ExtResource("9_sx7my")
 
 [node name="FinishCollider" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(-1.74846e-07, 4.30293e-20, 4, -6.97575e-13, 0.05, -3.47284e-18, -4, -8.71969e-15, -1.74846e-07, 5.20202e-15, -0.0143385, 4.16498e-15)
@@ -124,20 +127,8 @@ shape = SubResource("BoxShape3D_ckbdj")
 [node name="IslandFinish_vox" type="MeshInstance3D" parent="RigidBody3D"]
 transform = Transform3D(1, -3.17637e-20, -1.77965e-40, 3.17637e-20, 1, 7.09975e-27, 1.77965e-40, -7.09975e-27, 1, -2.10488e-18, -2.41434, 1.68433e-18)
 material_override = SubResource("StandardMaterial3D_einmq")
-mesh = ExtResource("8_5rm3k")
+mesh = ExtResource("11_tvhe0")
 skeleton = NodePath("../..")
 
-[node name="IslandTurn_vox" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 6)
-material_override = SubResource("StandardMaterial3D_w6uc7")
-mesh = ExtResource("10_7qn68")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="IslandTurn_vox"]
-transform = Transform3D(40, 0, 0, 0, 3.5, 0, 0, 0, 40, 2.08165e-12, 2.4, 2.08165e-12)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="IslandTurn_vox/StaticBody3D2"]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 2.08165e-12, 2.08165e-12, 2.08165e-12)
-shape = SubResource("ConcavePolygonShape3D_bibhs")
-
-[connection signal="body_entered" from="rv" to="rv" method="_on_body_entered"]
-[connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_hit_finish"]
+[connection signal="body_entered" from="rv" to="rv" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_hit_finish" flags=18]

@@ -26,3 +26,9 @@ func _manual_button():
 
 func _on_world_area():
 	game_manager.game_state = Enums.GameState.FREECAMERA
+
+func _toggle_level_complete():
+	get_node("LevelComplete").visible = true
+
+func _main_menu():
+	get_tree().change_scene_to_file("res://scenes/title_screen.tscn")

@@ -1,0 +1,106 @@
+[gd_scene load_steps=17 format=3 uid="uid://xef8e3cvxoj7"]
+
+[ext_resource type="Script" path="res://src/game_camera.gd" id="1_cyg2d"]
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_guq6s"]
+[ext_resource type="PackedScene" uid="uid://cfn1r4fxqa77u" path="res://UI/interface.tscn" id="2_jkq6v"]
+[ext_resource type="Texture2D" uid="uid://ytmq0f64qbay" path="res://models/rv.vox.png" id="3_dx3ky"]
+[ext_resource type="Script" path="res://src/rv.gd" id="3_wdr2a"]
+[ext_resource type="ArrayMesh" uid="uid://wahqdn6d1ax3" path="res://models/rv.vox.obj" id="4_r6gc1"]
+[ext_resource type="ArrayMesh" uid="uid://d012oaeqqo7aw" path="res://models/island_basic.vox.obj" id="6_jtb7w"]
+[ext_resource type="Texture2D" uid="uid://5cla4bxa4cnb" path="res://models/island_finish.vox.png" id="7_j2dew"]
+[ext_resource type="Script" path="res://scenes/FinishCollider.gd" id="10_gguqo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1qa5f"]
+ground_bottom_color = Color(0.211765, 0.337255, 0.407843, 1)
+ground_horizon_color = Color(0.466667, 0.690196, 0.796078, 1)
+ground_curve = 0.242514
+ground_energy_multiplier = 1.59
+
+[sub_resource type="Sky" id="Sky_pibkg"]
+sky_material = SubResource("ProceduralSkyMaterial_1qa5f")
+
+[sub_resource type="Environment" id="Environment_ml7x1"]
+background_mode = 2
+sky = SubResource("Sky_pibkg")
+ambient_light_color = Color(0.670588, 0.756863, 0.92549, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c3dvg"]
+albedo_texture = ExtResource("3_dx3ky")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vw0xj"]
+size = Vector3(3.59057, 1.54655, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ckbdj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_einmq"]
+albedo_texture = ExtResource("7_j2dew")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_guq6s")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.72269, 0.61828, -0.30895, 9.89672e-09, 0.446994, 0.894537, 0.691173, -0.646473, 0.323038, -0.379, 10, 1.566)
+environment = SubResource("Environment_ml7x1")
+current = true
+near = 0.01
+script = ExtResource("1_cyg2d")
+cam_center_adjustment = Vector3(-3, 2.08165e-12, -3)
+boundary_width_half = 20.0
+boundary_height_half = 20.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.802672, 0.282013, 0.525535, -0.596421, 0.379538, 0.707272, 0, -0.881147, 0.472843, 0, 4, 0)
+light_color = Color(0.882353, 0.921569, 0.870588, 1)
+shadow_enabled = true
+shadow_blur = 1.101
+directional_shadow_mode = 0
+directional_shadow_blend_splits = true
+directional_shadow_fade_start = 0.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayerUI" parent="Control" instance=ExtResource("2_jkq6v")]
+
+[node name="rv" type="RigidBody3D" parent="."]
+transform = Transform3D(-2.18557e-08, 1.74393e-16, 0.5, 1.74393e-16, 0.5, -1.74393e-16, -0.5, 1.74393e-16, -2.18557e-08, 2.08165e-12, 3.162, 2.08165e-12)
+linear_velocity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+angular_velocity = Vector3(3.63316e-14, 3.63316e-14, 3.63316e-14)
+constant_force = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+script = ExtResource("3_wdr2a")
+
+[node name="RVMesh" type="MeshInstance3D" parent="rv"]
+transform = Transform3D(0.2, 0, 1.53947e-16, 0, 0.2, 0, -1.53947e-16, 0, 0.2, 2.08165e-12, 2.08165e-12, 0.4)
+material_override = SubResource("StandardMaterial3D_c3dvg")
+mesh = ExtResource("4_r6gc1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="rv"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.32085, -0.2, 0.6, -0.2)
+shape = SubResource("BoxShape3D_vw0xj")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, -3.48787e-16, -1, 3.48787e-16, 1, -3.48787e-16, 1, -3.48787e-16, -4.37114e-08, 2.08165e-12, 2.41434, 2.08165e-12)
+max_contacts_reported = 1
+contact_monitor = true
+freeze = true
+freeze_mode = 1
+script = ExtResource("10_gguqo")
+
+[node name="FinishCollider" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(-1.74846e-07, 4.30283e-20, 4, -6.97575e-13, 0.05, -3.47284e-18, -4, -8.71969e-15, -1.74846e-07, 5.202e-15, -0.0143385, 4.16507e-15)
+shape = SubResource("BoxShape3D_ckbdj")
+
+[node name="IslandFinish_vox" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(1, -3.17637e-20, -1.77965e-40, 3.17637e-20, 1, 7.09975e-27, 1.77965e-40, -7.09975e-27, 1, -2.10488e-18, -2.41434, 1.68433e-18)
+material_override = SubResource("StandardMaterial3D_einmq")
+mesh = ExtResource("6_jtb7w")
+skeleton = NodePath("../..")
+
+[connection signal="body_entered" from="rv" to="rv" method="_on_body_entered"]
+[connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_hit_finish"]
