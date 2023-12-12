@@ -8,6 +8,8 @@ var hit_finish: bool = false
 # RV
 var _rv: RigidBody3D
 
+var level
+
 # Nodes
 var _game_camera: GameCamera 
 
@@ -19,11 +21,13 @@ func setup_level():
 	_game_camera.disable_movement = false
 	game_state = Enums.GameState.FREECAMERA
 	
+	_rv._reset()
+	
 	# TODO: Temp, should update whenever the gets reset
 
 func get_rv_position() -> Vector3:
 	print("get rv pos")
-	if(_rv):
+	if(weakref(_rv).get_ref()):
 		return _rv.get_transform().origin #_rv_transform.origin
 	return Vector3(0,0,0)
 	
@@ -37,19 +41,19 @@ func _input(event):
 				_game_camera.disable_movement = true
 				game_state = Enums.GameState.TYPING
 
-func _play_button(code: String):
+func _play_pause_button(code: String):
 	print(code)
-	if (!PseudoParser.running):
-		PseudoParser._parse(code)
-		PseudoParser._setstate(true)
-		PseudoParser._run()
+	if(is_playing):
+		print("pause button!")
+		PseudoParser._setstate(false)
+		is_playing = false
+	else:
+		if (!PseudoParser.running):
+			PseudoParser._parse(code)
+			PseudoParser._setstate(true)
+			PseudoParser._run()
+		print("playing")
 	
-	print("playing")
-	
-func _pause_button():
-	print("pause button!")
-	PseudoParser._setstate(false)
-	is_playing = false
 
 func _restart_button():
 	PseudoParser._restart()

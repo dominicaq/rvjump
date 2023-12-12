@@ -24,7 +24,7 @@ func _act(move_code: Action):
 	print("acting")
 	match(move_code):
 		Action.FORWARD:
-			await set_linear_velocity(forward_vec)
+			set_linear_velocity(forward_vec)
 			await get_tree().create_timer(1).timeout
 			return 0
 		Action.BACK:

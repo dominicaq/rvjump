@@ -3,6 +3,6 @@ extends RigidBody3D
 func _hit_finish(body:Node):
 	print(body)
 	if(body == GameManager._rv):
-		print(body, "fdgdf")
+		print(body, "hit finish")
 		GameManager.hit_finish = true
 	

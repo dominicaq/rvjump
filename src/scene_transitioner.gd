@@ -21,6 +21,8 @@ func _credits():
 	
 func _play(level: int):
 	await get_tree().change_scene_to_file(str("res://scenes/levels/level_", level, ".tscn"))
+	GameManager.level = level
+	
 
 
 func _on_texture_button_pressed():
